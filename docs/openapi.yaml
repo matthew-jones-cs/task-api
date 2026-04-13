@@ -18,6 +18,8 @@ paths:
       summary: List all tasks
       tags:
         - Tasks
+      parameters:
+        - $ref: "#/components/parameters/TaskCompleted"
       responses:
         '200':
           description: OK
@@ -92,3 +94,12 @@ components:
         completed:
           type: boolean
           example: false
+  parameters:
+    TaskCompleted:
+      name: completed
+      in: query
+      required: false
+      description: Filters tasks that do not contain the desired completeness
+      schema:
+        type: boolean
+        example: true
